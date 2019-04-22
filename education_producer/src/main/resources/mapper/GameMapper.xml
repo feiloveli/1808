@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.GameMapper">
+    <!-- 店铺新增 -->
+    <insert id="saveGame" parameterType="com.jk.pojo.GameBean">
+        insert into t_game
+        (id,img,name,introduce,type,price)
+        values(#{id},#{img},#{name},#{introduce},
+        #{type},#{price})
+    </insert>
+    <!--查询游戏开发 -->
+    <select id="queryGameList" parameterType="map" resultType="com.jk.pojo.GameBean">
+        select t.id,t.img,t.name,t.introduce,t.type,t.price
+        ,RAND() as r
+        from t_game t ORDER BY r LIMIT 0,10
+    </select>
+</mapper>

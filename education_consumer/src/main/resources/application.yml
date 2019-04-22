@@ -1,0 +1,25 @@
+ server:
+   port: 3001
+ eureka:
+   client:
+     serviceUrl:
+       defaultZone: http://localhost:1001/eureka/
+ spring:
+   application:
+     name: consumer
+   data:
+     elasticsearch:
+       repositories:
+         enabled: true
+       #集群节点名称 ip
+       cluster-nodes: localhost:9300
+       #名称
+       cluster-name: elasticsearch
+
+ #请求处理的超时时间
+ ribbon:
+   ReadTimeout: 120000
+   #请求连接的超时时间
+   ConnectTimeout: 30000
+
+
