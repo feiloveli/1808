@@ -288,6 +288,8 @@
     </div>
 </div>
 
+
+
 <div class="Page CourseList">
     <script type="text/javascript">
         /* ES检索 */
@@ -323,10 +325,70 @@
                             ''+data[i].introduce+''+data[i].type+'</p>'+
                             '<div class="clear"></div>'+
                             '<div class="price">'+
-                            '<h4 style="color:mediumvioletred">￥'+data[i].price+'</h4>'+
-                            '</div></div></div>';
+                            '<h4 style="color:mediumvioletred">￥'+data[i].price+'</h4>&nbsp</div></div>'+
+                            '<a href="/game/toDetails?id='+data[i].id+'"  class="add_tocar" data-id="8339">查看详情</a>'+
+                            '</div>';
                     }
                     $("#game").html(html)
+                }
+            })
+        }
+        <!-- 升序 ================================================================-->
+        function initMyTable() {
+            $.ajax({
+                url:'/game/getKey',
+                type:'GET',
+                data:{
+                },
+                success:function(result){
+                    var data = result.rows
+                    var html="<div class=\"row\"></div>";
+                    for(var i =0;i< data.length;i++){
+                        html+="<div class=\"cList_Item\">"+
+                            '<div class="pic" style="border-radius: 3px;">'+
+                            '<a href="#" target="_blank">'+
+                            '<img src="'+data[i].img+'?x-oss-process=image/resize,m_fill,h_134,w_224"></a></div>'+
+                            '<div class="main">' +
+                            '<h3><a href="#" title="+obj.name+" target="_blank">'+data[i].name+'</a></h3>'+
+                            '<p class="fl">'+
+                            ''+data[i].introduce+''+data[i].type+'</p>'+
+                            '<div class="clear"></div>'+
+                            '<div class="price">'+
+                            '<h4 style="color:mediumvioletred">￥'+data[i].price+'</h4>&nbsp</div></div>'+
+                            '<a href="/game/toDetails?id='+data[i].id+'"  class="add_tocar" data-id="8339">查看详情</a>'+
+                            '</div>';
+                    }
+                    $("#video").html(html)
+                }
+            })
+        }
+
+        <!--降序 ================================================================-->
+        function initMy() {
+            $.ajax({
+                url:'/game/findKey',
+                type:'GET',
+                data:{
+                },
+                success:function(result){
+                    var data = result.rows
+                    var html="<div class=\"row\"></div>";
+                    for(var i =0;i< data.length;i++){
+                        html+="<div class=\"cList_Item\">"+
+                            '<div class="pic" style="border-radius: 3px;">'+
+                            '<a href="#" target="_blank">'+
+                            '<img src="'+data[i].img+'?x-oss-process=image/resize,m_fill,h_134,w_224"></a></div>'+
+                            '<div class="main">' +
+                            '<h3><a href="#" title="+obj.name+" target="_blank">'+data[i].name+'</a></h3>'+
+                            '<p class="fl">'+
+                            ''+data[i].introduce+''+data[i].type+'</p>'+
+                            '<div class="clear"></div>'+
+                            '<div class="price">'+
+                            '<h4 style="color:mediumvioletred">￥'+data[i].price+'</h4>&nbsp</div></div>'+
+                            '<a href="/game/toDetails?id='+data[i].id+'"  class="add_tocar" data-id="8339">查看详情</a>'+
+                            '</div>';
+                    }
+                    $("#video").html(html)
                 }
             })
         }

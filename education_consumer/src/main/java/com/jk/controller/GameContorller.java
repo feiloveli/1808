@@ -152,4 +152,26 @@ public class GameContorller {
         }
     }*/
 
+    //跳转游戏开发详情页面
+    @RequestMapping("toDetails")
+    public String toDetails(){
+        return "detailsList";
+    }
+
+    //查询游戏开发详情
+    @RequestMapping("queryOrder")
+    @ResponseBody
+    public GameBean queryOrder(String id){
+        Client client = elasticsearchTemplate.getClient();
+        SearchRequestBuilder searchRequestBuilder = client.prepareSearch("gamee").setTypes("gameindex").setQuery(QueryBuilders.matchQuery("id",id));
+        SearchResponse searchResponse = searchRequestBuilder.get();
+        SearchHits hits = searchResponse.getHits();
+        Iterator<SearchHit> iterator = hits.iterator();
+        SearchHit next = iterator.next();
+        String sourceAsString = next.getSourceAsString();
+        GameBean housBean1 = JSON.parseObject(sourceAsString, GameBean.class);
+        return housBean1;
+    }
+
+
 }
