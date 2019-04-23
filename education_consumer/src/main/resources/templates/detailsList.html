@@ -273,7 +273,7 @@
                         '                    <div class="clear"></div>\n' +
                         '                </div>\n' +
                         '                <div class="Btns">\n' +
-                        '                    <button class="red buyNow">立即购买</button>\n' +
+                        '                    <button class="red buyNow" onclick="zfb('+item.price+')">立即购买</button>\n' +
                         '                    <button id="opLY">课程咨询</button>\n' +
                         '                </div>\n' +
                         '            </div>\n' +
@@ -284,6 +284,11 @@
 
             })
 
+        }
+
+        function zfb(price) {
+            alert(price);
+            location.href="/goAlipay?price="+price;
         }
     </script>
     <div class="Page" id="xiangqing"></div>
