@@ -1,6 +1,7 @@
 package com.jk.mapper;
 
 import com.jk.pojo.GameBean;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ public interface GameMapper {
     //查询游戏开发
     List<GameBean> queryGameList(GameBean gameBean);
 
+    List<GameBean> findVideo();
 }

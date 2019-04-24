@@ -1,8 +1,15 @@
 package com.jk.pojo;
 
-public class GameBean {
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
 
-    private Integer id;
+import java.io.Serializable;
+
+@Document(indexName = "gamee",type = "gameindex")
+public class GameBean implements Serializable {
+    private static final long serialVersionUID = -6914584810275278086L;
+    private String id;
+    @Field(analyzer = "ik_max_word")
 
     private String img;        //图片
 
@@ -14,11 +21,15 @@ public class GameBean {
 
     private String price;       //价格
 
-    public Integer getId() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -65,7 +76,7 @@ public class GameBean {
     @Override
     public String toString() {
         return "GameBean{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", img='" + img + '\'' +
                 ", name='" + name + '\'' +
                 ", introduce='" + introduce + '\'' +

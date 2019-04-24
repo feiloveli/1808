@@ -44,4 +44,11 @@ public class GameController {
     }
 
 
+    @PostMapping("findVideo")
+    @ResponseBody
+    public List<GameBean> findVideo() {
+        return gameService.findVideo();
+    }
+
+
 }

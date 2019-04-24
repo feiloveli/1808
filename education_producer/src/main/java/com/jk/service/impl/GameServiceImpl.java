@@ -5,6 +5,7 @@ import com.jk.pojo.GameBean;
 import com.jk.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -25,6 +26,12 @@ public class GameServiceImpl implements GameService {
     @Override
     public List<GameBean> queryGameList(GameBean gameBean) {
         return gameMapper.queryGameList(gameBean);
+    }
+
+    @Override
+    public List<GameBean> findVideo() {
+
+        return gameMapper.findVideo();
     }
 
 }

@@ -13,6 +13,11 @@
     <select id="queryGameList" parameterType="map" resultType="com.jk.pojo.GameBean">
         select t.id,t.img,t.name,t.introduce,t.type,t.price
         ,RAND() as r
-        from t_game t ORDER BY r LIMIT 0,10
+        from t_game t ORDER BY r LIMIT 0,20
+    </select>
+    <select id="findVideo" resultType="com.jk.pojo.GameBean">
+        select t.id,t.img,t.name,t.introduce,t.type,t.price
+        ,RAND() as r
+        from t_game t ORDER BY r LIMIT 0,15
     </select>
 </mapper>
