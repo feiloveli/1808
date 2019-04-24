@@ -2,6 +2,7 @@ package com.jk.service.impl;
 
 import com.jk.mapper.GameMapper;
 import com.jk.pojo.GameBean;
+import com.jk.pojo.GameBeanMongod;
 import com.jk.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,11 @@ public class GameServiceImpl implements GameService {
 
         return gameMapper.findVideo();
     }
+
+    @Override
+    public GameBeanMongod queryMedicine(String id) {
+        return gameMapper.queryMedicine(id);
+    }
+
 
 }

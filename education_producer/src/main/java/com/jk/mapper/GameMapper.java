@@ -1,7 +1,7 @@
 package com.jk.mapper;
 
 import com.jk.pojo.GameBean;
-import org.apache.ibatis.annotations.Select;
+import com.jk.pojo.GameBeanMongod;
 
 import java.util.List;
 
@@ -14,4 +14,6 @@ public interface GameMapper {
     List<GameBean> queryGameList(GameBean gameBean);
 
     List<GameBean> findVideo();
+
+    GameBeanMongod queryMedicine(String id);
 }

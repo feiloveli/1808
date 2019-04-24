@@ -1,14 +1,12 @@
 package com.jk.controller;
 
 import com.jk.pojo.GameBean;
+import com.jk.pojo.GameBeanMongod;
 import com.jk.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,16 @@ public class GameController {
 
     @Autowired
     private GameService gameService;
+
+
+    //查询药品精选详情
+    @PostMapping("queryMedicine")
+    @ResponseBody
+    public GameBeanMongod queryMedicine(@RequestBody String id){
+        GameBeanMongod queryMedicine = gameService.queryMedicine(id);
+        return queryMedicine;
+    }
+
 
 
     //游戏开发新增

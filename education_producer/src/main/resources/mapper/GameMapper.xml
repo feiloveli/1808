@@ -17,7 +17,10 @@
     </select>
     <select id="findVideo" resultType="com.jk.pojo.GameBean">
         select t.id,t.img,t.name,t.introduce,t.type,t.price
-        ,RAND() as r
-        from t_game t ORDER BY r LIMIT 0,15
+        from t_game t
+    </select>
+    <select id="queryMedicine" resultType="com.jk.pojo.GameBeanMongod">
+      select t.id,t.img,t.name,t.introduce,t.type,t.price from
+       t_game t where id = #{id}
     </select>
 </mapper>

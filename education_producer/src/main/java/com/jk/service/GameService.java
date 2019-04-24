@@ -1,6 +1,8 @@
 package com.jk.service;
 
 import com.jk.pojo.GameBean;
+import com.jk.pojo.GameBeanMongod;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -16,4 +18,6 @@ public interface GameService {
 
     List<GameBean> findVideo();
 
+
+    GameBeanMongod queryMedicine(String id);
 }
