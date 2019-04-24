@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.LoginMapper">
+
+<!--loginByUsernameAndPassword  登录-->
+    <select id="queryUserByNameAndPswd" resultType="com.jk.bean.User">
+
+     select * from  t_user where loginacct=#{loginacct} and userpswd=#{userpswd}
+
+    </select>
+    <!--existsPhone  查询是否注册过手机号-->
+    <select id="existsPhone" resultType="com.jk.bean.User">
+        select * from  t_user where userphone=#{phone_number}
+    </select>
+    <!--heiPhone  黑名单中有无此手机号-->
+    <select id="heiPhone" resultType="com.jk.bean.User">
+        select * from  t_hei where phone=#{phone_number}
+    </select>
+    <!--queryByName 注册验重-->
+    <select id="queryByName" resultType="com.jk.bean.User">
+       select * from  t_user where loginacct=#{loginacct}
+    </select>
+    <!--register 注册-->
+    <insert id="register">
+
+           INSERT INTO t_user(loginacct,userpswd,createtime,userphone,email) VALUES (#{loginacct}, #{userpswd},now(),#{userphone},#{email})
+    </insert>
+
+</mapper>
