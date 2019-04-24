@@ -34,8 +34,8 @@
 <link rel="stylesheet" href="/jss/bootstrap/bootstrap-fileinput/css/fileinput.css">
 <body>
 <div class="eduadvtop" style="background: #f1c80c; height:60px;">
-    <div class="Page"><a href="https://edu.51cto.com/courselist/index.html" target="_blank" ><img src="/jss/bootstrap/img/df933b12582ef6005eb54acab79f252e.png"  width="1200" height="60" />
-        <div class="ctxt">距离结束还剩：<b>05天13小时</b></div>
+    <div class="Page"><a href="https://edu.51cto.com/courselist/index.html" target="_blank" ><img src="https://s11.51cto.com/images/201904/16/df933b12582ef6005eb54acab79f252e.png"  width="1200" height="60" />
+        <div class="ctxt">距离结束还剩：<b>02天14小时</b></div>
 
     </a></div>
 </div>
@@ -56,7 +56,7 @@
 <div class="Header3 white ">
     <div class="Page">
         <ul>
-            <li class="fl logo"><a href="/"><img src="/jss/bootstrap/img/logo_01.png"></a></li>
+            <li class="fl logo"><a href="/"><img src="https://static12.51cto.com/edu/center/images/logo_01.png"></a></li>
             <li class="fl"><a href="/">首页</a></li>
             <li class="fl"><a href="https://edu.51cto.com/courselist/index.html">视频课程</a></li>
             <li class="fl" style="position: relative;"><a href="https://edu.51cto.com/topiclist">专题</a>
@@ -138,8 +138,8 @@
                 </div>
                 <div class="empty"></div>
             </li>
-            <li class="fr"><a class="fr LoginReg" href="https://edu.51cto.com/user/login.html">登录/注册</a></li>
-            <li class="fr"><a class="vipslgn" href="http://home.51cto.com/members/in-fo" target="_blank">VIP会员</a></li>
+            <li class="fr"><a class="fr LoginReg" href="#">登录/注册</a></li>
+            <li class="fr"><a class="vipslgn" href="/game/toList" target="_blank">后端</a></li>
             <li class="clear"></li>
         </ul>
     </div>
@@ -271,18 +271,8 @@
            class='cur'>
             综合排序            <div class="v_line"></div>
         </a>
-        <a href='/center/wejob/index/list?pid=126&sort=ctime&asc=0'
-        >
-            最新            <i class="icon arrow_d1"></i>
-        </a>
-        <a href='/center/wejob/index/list?pid=126&sort=buy&asc=0'
-        >
-            最热            <i class="icon arrow_d1"></i>
-        </a>
-        <a href='/center/wejob/index/list?pid=126&sort=price&asc=1'
-        >
-            价格                  </a>
-        <a href="/center/wejob/index/list?pid=126&sign=1" class="pl20"><i class="icon check "></i>可报名</a>
+        <button id="initMyTable" onclick="initMyTable()">升序</button>
+        <button id="init" onclick="initMy()">降序</button><br>
         <div class="top_chpage">
         </div>
     </div>
@@ -336,7 +326,7 @@
         <!-- 升序 ================================================================-->
         function initMyTable() {
             $.ajax({
-                url:'/game/getKey',
+                url:'/curriculum/getKey',
                 type:'GET',
                 data:{
                 },
@@ -358,7 +348,7 @@
                             '<a href="/game/toDetails?id='+data[i].id+'"  class="add_tocar" data-id="8339">查看详情</a>'+
                             '</div>';
                     }
-                    $("#video").html(html)
+                    $("#game").html(html)
                 }
             })
         }
@@ -366,7 +356,7 @@
         <!--降序 ================================================================-->
         function initMy() {
             $.ajax({
-                url:'/game/findKey',
+                url:'/curriculum/findKey',
                 type:'GET',
                 data:{
                 },
@@ -388,7 +378,7 @@
                             '<a href="/game/toDetails?id='+data[i].id+'"  class="add_tocar" data-id="8339">查看详情</a>'+
                             '</div>';
                     }
-                    $("#video").html(html)
+                    $("#game").html(html)
                 }
             })
         }

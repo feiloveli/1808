@@ -142,7 +142,7 @@ public class GameContorller {
         return result;
     }
 
-   /* @Scheduled(fixedRate = 2000)//定时器注解
+   @Scheduled(fixedRate = 2000)//定时器注解
     @ResponseBody
     public void testTasks(){
         List<GameBean> list = gameClient.findVideo();
@@ -150,7 +150,7 @@ public class GameContorller {
         for (GameBean user:list){
             curriculumRepostory.save(user);
         }
-    }*/
+    }
 
     //跳转游戏开发详情页面
     @RequestMapping("toDetails")

@@ -1,100 +1,379 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 引入核心js -->
-    <script src="/jss/jquery-2.1.1.min.js" ></script>
-    <!-- bootstrap  -->
-    <script src="/jss/bootstrap/bootstrap3/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="/jss/bootstrap/bootstrap3/css/bootstrap.css"/>
-    <!-- 左侧导航树 -->
-    <link rel="stylesheet" href="/jss/bootstrap/bootstrap-treeview/bootstrap-treeview.min.css">
-    <script src="/jss/bootstrap/bootstrap-treeview/bootstrap-treeview.min.js"></script>
-    <!-- 选项卡 -->
-    <link rel="stylesheet" href="/jss/bootstrap/bootStrap-addTabs/bootstrap.addtabs.css">
-    <script src="/jss/bootstrap/bootStrap-addTabs/bootstrap.addtabs.min.js"></script>
-    <link rel="stylesheet" href="/jss/bootstrap/bootstrap-table/bootstrap-table.css">
-    <script src="/jss/bootstrap/bootstrap-table/bootstrap-table.js"></script>
-    <script src="/jss/bootstrap/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
-    <script src="/jss/bootstrap/bootstrap-bootbox/bootbox.js"></script>
-    <script src="/jss/bootstrap/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-    <script src="/jss/bootstrap/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-    <link rel="stylesheet" href="/jss/bootstrap/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
-    <script src="/jss/bootstrap/bootstrap-fileinput/js/fileinput.js"></script>
-    <script src="/jss/bootstrap/bootstrap-fileinput/js/locales/zh.js"></script>
-    <link rel="stylesheet" href="/jss/bootstrap/bootstrap-fileinput/css/fileinput.css">
-    <title>游戏开发</title>
-</head>
-<style>
-    .add-dialog {
-        width: 800px;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="baidu-site-verification" content="I4Hb0KGrvc" />
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="hIVKh-R2j3UbsMgKPRR6bYLdix0NhHZq9AaqfWEi48pMLtu8IWdaGH9WlrIEM0eeMjvpQnrNP9Gq0S_pw453qw==">
+    <title>后端系统查询</title>
+    <meta name="keywords" content="游戏开发微职位,游戏开发基础入门教程,游戏开发培训,游戏开发培训班,游戏开发学习路线,游戏开发培训机构">
+    <meta name="description" content="51CTO学院IT职业在线教育平台是依托12年行业品牌、1400万IT技术用户建立的专业IT技能学习培训平台，已签约1000多位技术专家发布了12万个自学式实战慕课MOOC视频。此外，我们还开设了辅导式微职位IT在线培训班，涵盖Python培训、运维培训、大数据培训、Web前端培训、IT考证培训等领域，随到随学、通关学习、一对一辅导，助你升职加薪。">        <link href="https://static12.51cto.com/edu/center/css/base.css?v=2.6.5" rel="stylesheet"><link href="https://static12.51cto.com/edu/center/css/activity_tab.css?v=1.12" rel="stylesheet"><link href="https://static12.51cto.com/edu/center/css/background_pub.css?v=0.1.1" rel="stylesheet"><link href="https://static12.51cto.com/edu/center/css/clist.css?v=1.1.3" rel="stylesheet"><link href="https://static12.51cto.com/edu/center/css/courselist/new_courselist.css?v=1.0.4" rel="stylesheet">
+    <script type="text/javascript">_centerURL='https://edu.51cto.com/center/',imgpath='https://static12.51cto.com/edu/images/whitestyle/',upDomain = 'https://upload.51cto.com/',ImgUpDomain = 'https://upload.51cto.com/index.php?c=upload&m=upimg';_urls={user:'https://edu.51cto.com/center/user/user-index/index?user_id=888',lec:'https://edu.51cto.com/lecturer/888.html',spec:'https://edu.51cto.com/topic/888.html',pack:'https://edu.51cto.com/atlas/888.html',wejob:'https://edu.51cto.com/mic-position/888.html',course:'https://edu.51cto.com/course/888.html'},hmtPro='其他';</script>
+    <script src="https://static12.51cto.com/edu/center/js/jquery.min.js"></script><script src="https://static12.51cto.com/edu/center/js/prototype_create.js"></script><script src="https://static12.51cto.com/edu/center/js/plugins.js?v=1.0.9"></script><script src="https://static12.51cto.com/edu/plugin/mbox.v2.js?v=0.1.4"></script><script src="https://static12.51cto.com/edu/center/js/autoload_list.js?v=1.0.5"></script><script src="https://static12.51cto.com/edu/center/js/base.js?v=1.5.4"></script></head>
+<!-- 引入核心js -->
+<script src="/jss/jquery-2.1.1.min.js" ></script>
+<!-- bootstrap  -->
+<script src="/jss/bootstrap/bootstrap3/js/bootstrap.js"></script>
+<link rel="stylesheet" href="/jss/bootstrap/bootstrap3/css/bootstrap.css"/>
+<!-- 左侧导航树 -->
+<link rel="stylesheet" href="/jss/bootstrap/bootstrap-treeview/bootstrap-treeview.min.css">
+<script src="/jss/bootstrap/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+<!-- 选项卡 -->
+<link rel="stylesheet" href="/jss/bootstrap/bootStrap-addTabs/bootstrap.addtabs.css">
+<script src="/jss/bootstrap/bootStrap-addTabs/bootstrap.addtabs.min.js"></script>
+<link rel="stylesheet" href="/jss/bootstrap/bootstrap-table/bootstrap-table.css">
+<script src="/jss/bootstrap/bootstrap-table/bootstrap-table.js"></script>
+<script src="/jss/bootstrap/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="/jss/bootstrap/bootstrap-bootbox/bootbox.js"></script>
+<script src="/jss/bootstrap/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="/jss/bootstrap/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<link rel="stylesheet" href="/jss/bootstrap/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+<script src="/jss/bootstrap/bootstrap-fileinput/js/fileinput.js"></script>
+<script src="/jss/bootstrap/bootstrap-fileinput/js/locales/zh.js"></script>
+<link rel="stylesheet" href="/jss/bootstrap/bootstrap-fileinput/css/fileinput.css">
+<body>
+<div class="eduadvtop" style="background: #f1c80c; height:60px;">
+    <div class="Page"><a href="https://edu.51cto.com/courselist/index.html" target="_blank" ><img src="https://s11.51cto.com/images/201904/16/df933b12582ef6005eb54acab79f252e.png"  width="1200" height="60" />
+        <div class="ctxt">距离结束还剩：<b>02天14小时</b></div>
 
-    .row {
-        margin-top: 5px;
-    }
+    </a></div>
+</div>
+<style  type="text/css">
+    .eduadvtop .Page{ position: relative;}
+    .eduadvtop .Page .ctxt{position: absolute; left:735px; top:15px; z-index: 999; font-size: 18px; color: #333333;}
+    .eduadvtop .Page a{ height: 60px;position: relative; display: block; }
 </style>
 
-<body>
-<input type="button" value="新增" Class="btn btn-info glyphicon glyphicon-plus" onclick="addDialog()"></input>
-</body>
+
+
 <script type="text/javascript">
-    /* 新曾跳转 */
-    var res;
-
-    function createAddContent(url) {
-        $.ajax({
-            url: url,
-            async: false,
-            success: function (data) {
-                res = data;
+    var _picdomin = "https://s4.51cto.com/";
+    var STATICPATH= "https://static12.51cto.com/edu/";
+    var EDU_URL = 'https://edu.51cto.com/';
+    var user_id = '';
+</script>
+<div class="Header3 white ">
+    <div class="Page">
+        <ul>
+            <li class="fl logo"><a href="/"><img src="https://static12.51cto.com/edu/center/images/logo_01.png"></a></li>
+            <li class="fl"><a href="/">首页</a></li>
+            <div>
+            </div>
+            <li class="fr links">
+                <a href="javascript:void(0);">
+                    <i class="icon"></i>
+                </a>
+                <div class="More">
+                    <dl>
+                        <dt>线上学习</dt>
+                        <dd class="th2">
+                            <p><a href="https://edu.51cto.com/px/?wzdh" target="_blank">微职位</a></p>
+                            <p><a href="https://edu.51cto.com/courselist/index.html?wzdh" target="_blank">视频课程</a></p>
+                            <p><a href="https://edu.51cto.com/atlaslist/index.html?wzdh" target="_blank">技能图谱</a></p>
+                            <p><a href="http://b.edu.51cto.com/site/home?wzdh" target="_blank">企业内训</a></p>
+                            <!-- <p><a href="https://edu.51cto.com/activity/lists/id-10.html?wzdh" target="_blank">APP下载</a></p> -->
+                            <p><a href="https://edu.51cto.com/topiclist/index.html" target="_blank">学习专题</a></p>
+                            <p><a href="https://edu.51cto.com/lecturerlist/index.html?wzdh" target="_blank">签约讲师</a></p>
+                            <p><a href="https://edu.51cto.com/partner/index.html?wzdh" target="_blank">合作机构</a></p>
+                            <p><a href="http://book.51cto.com/" target="_blank">读书频道</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>互动社区</dt>
+                        <dd class="th1">
+                            <p><a href="http://blog.51cto.com/" target="_blank">博客</a></p>
+                            <p><a href="http://bbs.51cto.com/" target="_blank">论坛</a></p>
+                            <p><a href="http://down.51cto.com/" target="_blank">下载</a></p>
+                            <p><a href="http://weizhan.51cto.com/" target="_blank">微站</a></p>
+                            <p><a href="http://home.51cto.com/" target="_blank">家园</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>资讯产品</dt>
+                        <dd class="th2">
+                            <p><a href="http://www.51cto.com/tag/practice/" target="_blank">实践录</a></p>
+                            <p><a href="http://zhuanlan.51cto.com/" target="_blank">专栏</a></p>
+                            <p><a href="http://www.51cto.com/tag/original/" target="_blank">原创</a></p>
+                            <p><a href="http://www.51cto.com/tag/translation/" target="_blank">译文</a></p>
+                            <p><a href="http://www.51cto.com/col/35/" target="_blank">专题</a></p>
+                            <p><a href="http://www.cioage.com/cio.html" target="_blank" rel="nofollow">智享汇</a></p>
+                            <p><a href="http://www.51cto.com/tag/practice" target="_blank">足迹</a></p>
+                            <p><a href="http://www.51cto.com/tag/interviews" target="_blank">匠心</a></p>
+                            <p><a href="http://www.51cto.com/tag/huiyan" target="_blank">慧眼</a></p>
+                            <p><a href="http://www.51cto.com/tag/video/" target="_blank">视频</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>线下学习</dt>
+                        <dd class="th1">
+                            <!--              <p><a href="http://x.51cto.com/?edutop" target="_blank">CTO训练营</a></p>-->
+                            <!--              <p><a href="http://club.51cto.com?edutop" target="_blank">CTO俱乐部</a></p>-->
+                            <p><a href="http://wot.51cto.com/?edutop" target="_blank">WOT峰会</a></p>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder">
+                        <dt>服务指南</dt>
+                        <dd class="th1">
+                            <p><a href="https://edu.51cto.com/center/about/index/help" target="_blank">帮助中心</a></p>
+                            <p><a href="https://edu.51cto.com/center/about/index/feedback" target="_blank">意见反馈</a></p>
+                            <p><a href="http://blog.51cto.com/51edu/1862738" target="_blank">学员QQ群</a></p>
+                            <p><a href="javascript:;" class="zhiCustomBtn">联系客服</a></p>
+                            <p><a href="http://www.51cto.com/?wzdh" target="_blank">51CTO主站</a></p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="empty"></div>
+            </li>
+            <li class="fr"><a class="vipslgn" onclick="addDialog()" target="_blank">新增</a></li>
+            <li class="clear"></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">$("#TopSearchFrom").find('input').keyup(function(){$(this).val($(this).val().substr(0,30))}).keydown(function(e){if(e.keyCode == 13 && $.trim($(this).val()).length==0){return false;};}).next().click(function(){if($.trim($(this).prev().val()).length==0) return false;});</script>
+<!-- 诸葛埋点start -->
+<script type="text/javascript">
+    (function() {
+        window.zhuge = window.zhuge || [];
+        window.zhuge.methods = "_init identify track getDid getSid getKey setSuperProperty setUserProperties setWxProperties setPlatform".split(" ");
+        window.zhuge.factory = function(b) {
+            return function() {
+                var a = Array.prototype.slice.call(arguments);
+                a.unshift(b);
+                window.zhuge.push(a);
+                return window.zhuge;
             }
+        };
+        for (var i = 0; i < window.zhuge.methods.length; i++) {
+            var key = window.zhuge.methods[i];
+            window.zhuge[key] = window.zhuge.factory(key);
+        }
+        window.zhuge.load = function(b, x) {
+            if (!document.getElementById("zhuge-js")) {
+                var a = document.createElement("script");
+                var verDate = new Date();
+                var verStr = verDate.getFullYear().toString() + verDate.getMonth().toString() + verDate.getDate().toString();
+
+                a.type = "text/javascript";
+                a.id = "zhuge-js";
+                a.async = !0;
+                a.src = (location.protocol == 'http:' ? "http://sdk.zhugeio.com/zhuge.min.js?v=": 'https://zgsdk.zhugeio.com/zhuge.min.js?v=') + verStr;
+                a.onerror = function() {
+                    window.zhuge.identify = window.zhuge.track = function(ename, props, callback) {
+                        if(callback && Object.prototype.toString.call(callback) === '[object Function]') {
+                            callback();
+                        } else if (Object.prototype.toString.call(props) === '[object Function]') {
+                            props();
+                        }
+                    };
+                };
+                var c = document.getElementsByTagName("script")[0];
+                c.parentNode.insertBefore(a, c);
+                window.zhuge._init(b, x)
+            }
+        };
+        window.zhuge.load('c66b72eff73f441d8513d9e9ce5d966b', {
+            superProperty: {},
+            adTrack: true,
+            autoTrack: false,
+            singlePage: false
         });
-        return res;
+    })();
+
+    if(user_id!=''){
+        zhuge.identify(user_id);
     }
 
-    function addDialog() {
-        bootbox.dialog({
-            size: "big",
-            title: '添加内容',
-            //跳转到新增页面
-            message: createAddContent("/game/addGame"),
-            closeButton: true,
-            //className:'add-dialog',
-            buttons: {
-                'success': {
-                    "label": "<i class='icon-ok'></i> 提交",
-                    "className": "btn-sm btn-success",
-                    "callback": function () {
-                        $.ajax({
-                            //新增路径
-                            url: '/game/saveGame',
-                            type: 'post',
-                            /* 新曾页面form ↓*/
-                            data: $("#addForm").serialize(),
-                            dataType: 'json',
-                            success: function (data) {
-                                $('#myTablke').bootstrapTable('refresh');
-                            }
-                        })
-                    }
-                }
-            },
-            'cancel': {
-                "label": "<i class='icon-info'></i> 取消",
-                "className": "btn-sm btn-danger",
-                "callback": function () {
-                }
-            }
-
-        })
+    window.onload = function () {
+        /**
+         * 事件: 注册成功
+         */
+        var t_r_u_c = getCookie('today_reg_user');
+        if (user_id != '' && t_r_u_c !== '') {
+            var t_r_u = (t_r_u_c == 1) ? '是' : '否';
+            zhuge.track('注册成功', {
+                '当天注册用户': t_r_u,
+            });
+            removeCookie('today_reg_user');
+        }
     }
-
-
-
-
-
-
 
 </script>
+<div class="Page CourseList" xmlns="http://www.w3.org/1999/html" style="background: #fff;width: 100%;">
+    <div class="condition">
+
+    </div>
+</div>
+<style>
+    .arrow_d{display: none;}
+    .CourseList.Sort a{margin-right: 40px;}
+</style>
+<div class="CourseList Sort">
+</div>
+
+
+
+<div class="Page CourseList">
+    <script type="text/javascript">
+        /* 页面加载 */
+        $(function () {
+            initMyTableDrugs();
+        });
+
+        /* 页面查询 */
+        function initMyTableDrugs() {
+            var  content="";
+            $.ajax({
+                url: "/game/queryGameList",
+                success: function (item) {
+                    $.each(item,function (index,obj) {
+                        content+='<div class="cList_Item">\n' +
+                            '                            <div class="pic" style="border-radius: 3px;">\n' +
+                            '                            <a href="#" target="_blank">\n' +
+                            '                            <img src="'+obj.img+'?x-oss-process=image/resize,m_fill,h_134,w_224"></a></div>\n' +
+                            '                            <div class="main">\n' +
+                            '                            <h3><a href="#" title="+obj.name+" target="_blank">'+obj.name+'</a></h3>\n' +
+                            '                            <p class="fl">\n' +
+                            '                            '+obj.introduce+''+obj.type+'</p>\n' +
+                            '                            <div class="clear"></div>\n' +
+                            '                            <div class="price">\n' +
+                            '                            <h4 style="color:mediumvioletred">￥'+obj.price+'</h4>&nbsp</div></div>\n' +
+                            '                            </div>'
+                        $("#game").html(content);
+                    })
+
+                }
+
+            })
+
+        }
+
+
+        /* 新曾跳转 */
+        var res;
+
+        function createAddContent(url) {
+            $.ajax({
+                url: url,
+                async: false,
+                success: function (data) {
+                    res = data;
+                }
+            });
+            return res;
+        }
+
+        function addDialog() {
+            bootbox.dialog({
+                size: "big",
+                title: '添加内容',
+                //跳转到新增页面
+                message: createAddContent("/game/addGame"),
+                closeButton: true,
+                //className:'add-dialog',
+                buttons: {
+                    'success': {
+                        "label": "<i class='icon-ok'></i> 提交",
+                        "className": "btn-sm btn-success",
+                        "callback": function () {
+                            $.ajax({
+                                //新增路径
+                                url: '/game/saveGame',
+                                type: 'post',
+                                /* 新曾页面form ↓*/
+                                data: $("#addForm").serialize(),
+                                dataType: 'json',
+                                success: function (data) {
+                                    $('#myTablke').bootstrapTable('refresh');
+                                }
+                            })
+                        }
+                    }
+                },
+                'cancel': {
+                    "label": "<i class='icon-info'></i> 取消",
+                    "className": "btn-sm btn-danger",
+                    "callback": function () {
+                    }
+                }
+
+            })
+        }
+
+
+
+
+
+    </script>
+    <div class="cList" id="game"></div>
+</div>
+<script type="text/javascript">
+    var students_count = parseInt('1');
+</script>
+
+
+<div class="footer_bg">
+    <div class="footer">
+        <ul class="footer_list">
+            <li><h2>新手指南</h2></li>
+            <li><a href="https://edu.51cto.com/center/about/index/help" target="_blank">如何购买</a></li>
+            <li><a href="https://edu.51cto.com/center/about/index/help" target="_blank">如何使用优惠券</a></li>
+            <li><a href="https://edu.51cto.com/center/about/index/help" target="_blank">如何开发票</a></li>
+            <li><a href="https://edu.51cto.com/center/about/index/help" target="_blank">退款政策</a></li>
+        </ul>
+        <ul class="footer_list">
+            <li><h2>关于课程</h2></li>
+            <li><a href="https://edu.51cto.com/center/about/index/help" target="_blank">手机上如何看课程</a></li>
+            <li><a href="https://edu.51cto.com/center/about/index/help" target="_blank">如何下载资料</a></li>
+            <li><a href="javascript:;"  class="zhiCustomBtn">视频卡顿反馈</a></li>
+            <li><a href="http://blog.51cto.com/51edu/2105647" target="_blank">想学习的课程登记贴</a></li>
+        </ul>
+        <ul class="footer_list">
+            <li><h2>互动交流</h2></li>
+            <li><a href="http://51edu.blog.51cto.com/8899635/1862738" target="_blank">学员QQ群</a></li>
+            <li><a href="https://edu.51cto.com/center/about/index/feedback" target="_blank">意见反馈</a></li>
+            <li><a href="http://bbs.51cto.com" target="_blank">论坛交流</a></li>
+            <li><a href="http://down.51cto.com" target="_blank">资料下载</a></li>
+        </ul>
+        <ul class="footer_list">
+            <li><h2>关于我们</h2></li>
+            <li><a href="https://edu.51cto.com/center/about/index/about" target="_blank">关于我们</a></li>
+            <li><a href="https://edu.51cto.com/lecturer/lectopics" target="_blank">内容合作</a></li>
+            <li><a href="https://edu.51cto.com/partner/index.html" target="_blank">合作机构</a></li>
+            <li><a href="https://edu.51cto.com/friendlink" target="_blank">友情链接</a></li>
+        </ul>
+        <ul class="footer_last">
+            <li><h2>客服热线</h2>09:00-19:00</li>
+            <li><h3>400-101-1651</h3></li>
+            <li>
+                <div class="sbox_more">
+                    <a class="sina fl" href="http://weibo.com/51ctoedu?refer_flag=1001030101_&is_hot=1" target="_blank" rel="nofollow"></a>
+                    <div class="wechat_bg fl" style="z-index:2;">
+                        <a class="wechat" href="javascript:;"></a>
+                        <div class="wechat_box" style="padding:0">
+                            <img src="https://s1.51cto.com/images/201712/27/9ec3d7841d40316cff4f2fbb5c1e4b2a.png" width="110" height='110' alt="51CTO">
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="footer_company">
+        <a href="https://edu.51cto.com/" target="_blank" title="51CTO学院_中国最大的IT技能学习平台"><img src="/jss/bootstrap/img/logo_f3.png" alt="51CTO学院_中国最大的IT技能学习平台" width="100" height="22"></a>
+        <div>
+            <a href="https://edu.51cto.com/center/about/index/publish" target="_blank" style="display: inline-block;margin-right: 10px;margin-bottom: 10px;">北京无忧创想信息技术有限公司</a>
+            <a href="https://edu.51cto.com/center/about/index/business" target="_blank" style="display: inline-block;margin-right: 10px;margin-bottom: 10px;">出版物经营许可证 新出发京零字第海170131号</a>
+            <a style="display: inline-block;margin-right: 10px;margin-bottom: 10px;">北京市海淀区中关村南一条甲一号2号楼602A</a><br>
+            <div class="mb10">PMI, PMP and PMBOK are registered marks of the Project Management Institute, Inc.</div>
+            Copyright © 2005-2019 <a href="http://www.51cto.com" target="_blank">51CTO.com</a>
+        </div>
+    </div>
+</div>
+
+<!-- 诸葛end -->
+<!-- 广告 -->
+<table id="table"></table>
+</body>
 </html>

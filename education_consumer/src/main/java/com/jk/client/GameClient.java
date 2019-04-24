@@ -19,6 +19,9 @@ public interface GameClient {
     @PostMapping("queryGameList")
     List<GameBean> queryGameList(GameBean gameBean);
 
+    @PostMapping("findVideo")
+    List<GameBean> findVideo();
+
    /* @RequestMapping("findVideo")
     List<GameBean> findVideo();*/
 }
